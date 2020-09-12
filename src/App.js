@@ -52,6 +52,7 @@ function App() {
   const [type, setT] = React.useState('');
   const [response, setResponse] = React.useState('');
   const [pokemon, setPokemon] = React.useState('');
+  const [pokemonDreamWorld, setPokemonDreamWorld] = React.useState('');
 
   const handleEnvironment = (event) => {
     setEnv(event.target.value);
@@ -62,15 +63,16 @@ function App() {
   };
 
   const handleSendMessage = (event) => {
-    let api = new API({
+    const api = new API({
       baseURI: 'https://pokeapi.co/api/v2/'
     });
   
-    let pokeNumber = Math.floor(Math.random() * 151);
+    const pokeNumber = Math.floor(Math.random() * 150) + 1;
     api.get('pokemon/' + pokeNumber, (err, res, otro) => {
       if (otro) {
         setResponse(otro.forms[0].name)
         setPokemon(otro.sprites.front_default)
+        setPokemonDreamWorld(otro.sprites.other.dream_world.front_default)
       } else {
         setResponse("Undefined")
         setPokemon("NaN")
@@ -155,7 +157,7 @@ function App() {
               <Typography className={classes.title} component="h1" variant="h5">
                 {response}
               </Typography>
-              <img src={pokemon}/>
+              <img alt="pokemon dream world" src={pokemonDreamWorld}/>
             </Grid>
           </Grid>
       </div>
