@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-function Home() {
+function CallRabbitForm_v1() {
 
     const classes = useStyles();
     const [environment, setEnv] = React.useState('');
@@ -136,4 +136,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default CallRabbitForm_v1;

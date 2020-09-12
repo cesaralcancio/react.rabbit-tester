@@ -33,7 +33,7 @@ function App() {
           <Paper className={classes.paper}>
             <MenuList>
               <MenuItem><Link to="/">Home</Link></MenuItem>
-              <MenuItem><Link to="/call-rabbit-forrm">Call Rabbit</Link></MenuItem>
+              <MenuItem><Link to="/call-rabbit-form">Rabbit</Link></MenuItem>
               <MenuItem><Link to="/form">Form</Link></MenuItem>
               <MenuItem><Link to="/pokemon">Pokémon</Link></MenuItem>
               <MenuItem><Link to="/about">About</Link></MenuItem>
