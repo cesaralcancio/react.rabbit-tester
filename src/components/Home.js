@@ -1,18 +1,16 @@
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
+
 import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import BuildIcon from '@material-ui/icons/Build';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-import API from 'fetch-api'
 
 function Copyright() {
     return (
@@ -51,9 +49,6 @@ function Home() {
     const classes = useStyles();
     const [environment, setEnv] = React.useState('');
     const [type, setT] = React.useState('');
-    const [response, setResponse] = React.useState('');
-    const [pokemon, setPokemon] = React.useState('');
-    const [pokemonDreamWorld, setPokemonDreamWorld] = React.useState('');
 
     const handleEnvironment = (event) => {
         setEnv(event.target.value);
@@ -61,24 +56,6 @@ function Home() {
 
     const handleType = (event) => {
         setT(event.target.value, environment);
-    };
-
-    const handleSendMessage = (event) => {
-        const api = new API({
-            baseURI: 'https://pokeapi.co/api/v2/'
-        });
-  
-        const pokeNumber = Math.floor(Math.random() * 150) + 1;
-        api.get('pokemon/' + pokeNumber, (err, res, otro) => {
-            if (otro) {
-                setResponse(otro.forms[0].name)
-                setPokemon(otro.sprites.front_default)
-                setPokemonDreamWorld(otro.sprites.other.dream_world.front_default)
-            } else {
-                setResponse("Undefined")
-                setPokemon("NaN")
-            }
-        });
     };
     
     return (
@@ -148,18 +125,9 @@ function Home() {
                 fullWidth
                 variant="contained"
                 color="primary"
-                className={classes.submit}
-                onClick={handleSendMessage}>
+                className={classes.submit}>
                 Send message
                 </Button>
-                <Grid>
-                <Grid item xs={12}>
-                    <Typography className={classes.title} component="h1" variant="h5">
-                    {response}
-                    </Typography>
-                    <img alt="pokemon dream world" src={pokemonDreamWorld}/>
-                </Grid>
-                </Grid>
             </div>
             <Box mt={5}>
             <Copyright />

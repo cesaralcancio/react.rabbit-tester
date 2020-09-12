@@ -9,6 +9,7 @@ import MenuList from '@material-ui/core/MenuList';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
+import Pokemon from './components/Pokemon';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,6 +33,7 @@ function App() {
             <MenuList>
               <MenuItem><Link to="/">Home</Link></MenuItem>
               <MenuItem><Link to="/form">Form</Link></MenuItem>
+              <MenuItem><Link to="/pokemon">Pokémon</Link></MenuItem>
               <MenuItem><Link to="/about">About</Link></MenuItem>
             </MenuList>
           </Paper>
@@ -39,6 +41,7 @@ function App() {
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/form" component={Form}/>
+          <Route path="/pokemon" component={Pokemon} />
           <Route path="/about" component={About}/>
         </Switch>
       </Container>
