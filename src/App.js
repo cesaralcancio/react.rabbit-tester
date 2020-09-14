@@ -12,6 +12,7 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Pokemon from './components/Pokemon';
 import ListTask from './components/ListTasks';
+import AddTask from './components/AddTask';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,6 +37,7 @@ function App() {
               <MenuItem><Link to="/form">Form</Link></MenuItem>
               <MenuItem><Link to="/pokemon">Pokémon</Link></MenuItem>
               <MenuItem><Link to="/task/list">List Task</Link></MenuItem>
+              <MenuItem><Link to="/task/add">Add Task</Link></MenuItem>
               <MenuItem><Link to="/about">About</Link></MenuItem>
             </MenuList>
           </Paper>
@@ -47,6 +49,7 @@ function App() {
             <Route path="/form" component={Form}/>
             <Route path="/pokemon" component={Pokemon} />
             <Route path="/task/list" component={ListTask} />
+            <Route path="/task/add" component={AddTask} />
             <Route path="/about" component={About}/>
           </Switch>
         </Grid>

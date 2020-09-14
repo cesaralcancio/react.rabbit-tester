@@ -8,6 +8,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { Typography } from '@material-ui/core';
 
 function ListTask() {
 
@@ -29,20 +30,25 @@ function ListTask() {
         fetchTasks();
     }, [refreshState]);
 
-    const useStyles = makeStyles({
+    const useStyles = makeStyles((theme) => ({
         table: {
           minWidth: 650,
         },
         table_head_row_cell: {
             fontWeight: "bolder",
+        },
+        title: {
+            marginBottom: theme.spacing(3)
         }
-    });
+    }));
 
     const classes = useStyles();
 
     return (
         <div>
-            <h1>List Task</h1>
+            <Typography className={classes.title} component="h1" variant="h5">
+                List Task
+            </Typography>
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead>
@@ -55,7 +61,7 @@ function ListTask() {
                     </TableHead>
                     <TableBody>
                     {tasks.map((row) => (
-                        <TableRow key={row.name}>
+                        <TableRow key={row._id}>
                             <TableCell align="left">{row._id}</TableCell>
                             <TableCell align="left">{row.name}</TableCell>
                             <TableCell align="left">{row.status}</TableCell>
@@ -67,7 +73,7 @@ function ListTask() {
             </TableContainer>
             <br/>
             <br/>
-            {tasks.map((task) => (
+            {/* {tasks.map((task) => (
                 <div key={task._id}>
                     <div key={task._id}>{task._id}</div>
                     <div>{task.name}</div>
@@ -75,7 +81,7 @@ function ListTask() {
                     <div>{task.created_date}</div>
                     <br/>
                 </div>
-            ))}
+            ))} */}
         </div>
     )
 }
